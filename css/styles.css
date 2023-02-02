@@ -136,13 +136,15 @@ body {
     width: 35%;
 }
 
+h3{
+font-size: 6.5vw;
+}
+
 #balance-account {
     margin-top: 5%;
     margin-bottom: 5%;
     overflow: hidden;
-
     font-size: 6.5vw;
-
     text-align: center;
     text-overflow: ellipsis;
 }
