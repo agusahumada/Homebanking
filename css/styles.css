@@ -98,6 +98,13 @@ body {
     color: #2f3a4f;
 }
 
+.disabled-btn{
+    color: #a4a4a4;
+}
+.disabled-btn:hover{
+    pointer-events: none;
+}
+
 .white-container {
     display: flex;
     width: 65%;

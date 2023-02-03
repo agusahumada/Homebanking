@@ -19,7 +19,7 @@
     <div class="white-container">
         <div class="menu-container">
             <h1 class="your-account">Tu cuenta</h1>
-            <button class="links" onclick="withdrawMoney()">Extraer dinero</button>
+            <button id="withdraw-btn" class="links" onclick="withdrawMoney()">Extraer dinero</button>
             <button class="links" onclick="depositMoney()">
           Depositar dinero
         </button>
@@ -35,10 +35,11 @@
             <div class="account-info">
                 <p>Saldo en tu cuenta</p>
                 <h3>$ <strong id="balance-account"></strong></h3>
-                <p id="withdrawal-limit">Tu límite de extracción es:</p>
+                <p>Tu límite de extracción es: <strong id="withdrawal-limit"></strong></p>
             </div>
         </div>
     </div>
+    <script src="/js/utils.js"></script>
     <script src="/js/app.js"></script>
 </body>
 
