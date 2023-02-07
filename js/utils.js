@@ -1,5 +1,12 @@
-function substract(num1, num2) {
-    return num1 - num2;
+function substract(balance, newAmount, message) {
+    let response = message;
+    if (newAmount > balance) {
+        response = 'No cuenta con saldo suciente para realizar el pago';
+        alert(response);
+        return ;
+    }
+    alert(message);
+    return balance - newAmount;
 }
 
 function add(num1, num2) {
@@ -8,9 +15,9 @@ function add(num1, num2) {
 
 function validate(newAmount, balance, dailyWithdraw, newWithdrawalLimit) {
     let success = false;
-    let response = "";
+    let response = '';
 
-    if (isNaN(newAmount)) return { response: "No se ingreso un monto", success };
+    if (isNaN(newAmount)) return { response: 'No se ingreso un monto', success };
 
     if (newAmount > balance) {
         response = 'No cuenta con saldo suciente para realizar una extracción';

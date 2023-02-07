@@ -20,7 +20,7 @@ function withdrawMoney() {
         alert(response);
         return;
     }
-    balance = substract(balance, newAmount);
+    balance = substract(balance, newAmount, 'La extracción ha sido exitosa');
     balanceElement.innerHTML = balance;
     dailyWithdraw = dailyWithdraw + newAmount;
 
@@ -43,5 +43,35 @@ function depositMoney() {
 }
 
 function payService() {
-    let payment = prompt("Ingrese el numero que corresponda con el servicio que");
+    let servicePayment = prompt('Ingrese el numero que corresponda con el servicio que queres pagar \n 1-Agua \n 2-Tel \n 3-Electricidad \n 4-Internet');
+
+    let prevBalance = null;
+    switch (servicePayment) {
+        case '':
+            alert('No se ingreso un monto');
+            break;
+        case null:
+            alert('No ha elegido ningun servicio');
+            break;
+        case '1':
+           prevBalance = substract( balance, water, 'Usted ha pagado el servicio de Agua.\n Valor: $' + water);
+            balance = prevBalance ? prevBalance : balance;
+            break;
+        case '2':
+            prevBalance = substract( balance, tel, 'Usted ha pagado el servicio de Tel.\n Valor: $' + tel);
+            balance = prevBalance ? prevBalance : balance;
+            break;
+        case '3':
+            prevBalance = substract( balance, electricity, 'Usted ha pagado el servicio de Electricidad.\n Valor: $' + electricity);
+            balance = prevBalance ? prevBalance : balance;
+            break;
+        case '4':
+            prevBalance = substract( balance, internet, 'Usted ha pagado el servicio de Internet.\n Valor: $' + internet);
+            balance = prevBalance ? prevBalance : balance;
+            break;
+        default:
+            alert('El servicio que eligió no existe');
+            break;
+        }
+        balanceElement.innerHTML = balance;
 }
