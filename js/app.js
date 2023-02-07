@@ -33,6 +33,11 @@ function withdrawMoney() {
 function depositMoney() {
     let amount = prompt('Ingrese el monto del deposito');
     let newAmount = parseInt(amount);
+    const { response, success } = validate(newAmount, balance, dailyWithdraw, newWithdrawalLimit);
+    if (success === false) {
+        alert(response);
+        return;
+    }
     balance = add(balance, newAmount);
     balanceElement.innerHTML = balance;
 }
