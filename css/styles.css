@@ -5,6 +5,9 @@ body {
 
     background-color: #2a333d;
 }
+.bg-login{
+    filter: blur(100px);
+}
 
 .avatar {
     display: inline-block;
@@ -98,6 +101,13 @@ body {
     color: #2f3a4f;
 }
 
+.disabled-btn{
+    color: #a4a4a4;
+}
+.disabled-btn:hover{
+    pointer-events: none;
+}
+
 .white-container {
     display: flex;
     width: 65%;
@@ -136,13 +146,15 @@ body {
     width: 35%;
 }
 
+h3{
+font-size: 6.5vw;
+}
+
 #balance-account {
     margin-top: 5%;
     margin-bottom: 5%;
     overflow: hidden;
-
     font-size: 6.5vw;
-
     text-align: center;
     text-overflow: ellipsis;
 }
