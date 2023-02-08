@@ -9,6 +9,8 @@ let internet = 570;
 let dailyWithdraw = 0;
 let balance = 5000;
 let newWithdrawalLimit = 2000;
+let friendAcount = 1234567;
+let friendAcount2 = 89101112;
 balanceElement.innerHTML = balance;
 withdrawalLimitElement.innerHTML = newWithdrawalLimit;
 
@@ -74,4 +76,30 @@ function payService() {
             break;
         }
         balanceElement.innerHTML = balance;
+}
+
+function transferMoney() {
+    let prevBalance = null;
+    let amount = prompt('Ingrese el monto de la transferencia');
+    let newAmount = parseInt(amount);
+    const { response, success } = validate(newAmount, balance, dailyWithdraw, newWithdrawalLimit);
+    if (success === false) {
+        alert(response);
+        return;
+    }
+    let numberAccount = prompt('Ingrese el numero de la cuenta que desea transferir');
+    if(numberAccount == null || numberAccount == ''){
+        alert('No se ingreso ningún número de cuenta');
+        return
+    }
+
+    let parsedNumberAccount = parseInt(numberAccount);
+
+    if(parsedNumberAccount == friendAcount || parsedNumberAccount == friendAcount2){
+        prevBalance = substract( balance, newAmount, 'Transferencia realizada con éxito');
+        balance = prevBalance ? prevBalance : balance;
+    }else{
+        alert('Solo puede transferirse dinero a una cuenta amiga.');
+    }
+    balanceElement.innerHTML = balance;
 }
