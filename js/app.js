@@ -7,7 +7,7 @@ let tel = 425;
 let electricity = 210;
 let internet = 570;
 let dailyWithdraw = 0;
-let balance = 5000;
+let balance = 10000;
 let newWithdrawalLimit = 2000;
 let friendAcount = 1234567;
 let friendAcount2 = 89101112;
@@ -102,4 +102,17 @@ function transferMoney() {
         alert('Solo puede transferirse dinero a una cuenta amiga.');
     }
     balanceElement.innerHTML = balance;
+}
+
+function changeLimit() {
+    let amount = prompt('Ingrese el nuevo limite de extraccion');
+    let newAmount = parseInt(amount);
+    if(isNaN(newAmount)){
+        alert('No se ingreso ningún monto');
+        return
+    }
+    newWithdrawalLimit = newAmount;
+    withdrawalLimitElement.innerHTML = newWithdrawalLimit;
+    alert('El limite de extracción ha sido cambiado exitosamente');
+    
 }
