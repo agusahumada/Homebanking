@@ -3,6 +3,7 @@ const userElement = document.getElementById('user-number');
 const balanceElement = document.getElementById('balance-account');
 const withdrawalLimitElement = document.getElementById('withdrawal-limit');
 const withdrawBtnElement = document.getElementById('withdraw-btn');
+const remainingBalanceElement = document.getElementById('remaining-balance');
 
 let water = 350;
 let tel = 425;
@@ -15,7 +16,7 @@ let friendAcount = 1234567;
 let friendAcount2 = 89101112;
 balanceElement.innerHTML = balance;
 withdrawalLimitElement.innerHTML = newWithdrawalLimit;
-
+remainingBalanceElement.innerHTML = newWithdrawalLimit;
 bodyElement.classList.add('bg-login');
 
 function login() {
@@ -38,8 +39,6 @@ function login() {
             alert('Gracias! En un momento será redirigido a su cuenta');
 
         }
-        let parsedAccountUser = parseInt(numberAccountUser);
-        let parsedNumberRepeat = parseInt(numberRepeat);
         bodyElement.classList.remove('bg-login');
         userElement.innerHTML = numberAccountUser;
     }, 300);
@@ -58,11 +57,11 @@ function withdrawMoney() {
     balance = substract(balance, newAmount, 'La extracción ha sido exitosa');
     balanceElement.innerHTML = balance;
     dailyWithdraw = dailyWithdraw + newAmount;
-
     if (dailyWithdraw >= newWithdrawalLimit) {
         withdrawBtnElement.disabled = true;
         withdrawBtnElement.classList.add('disabled-btn');
     }
+    updateRemainingBalance();
 }
 
 function depositMoney() {
@@ -147,4 +146,9 @@ function changeLimit() {
     newWithdrawalLimit = newAmount;
     withdrawalLimitElement.innerHTML = newWithdrawalLimit;
     alert('El limite de extracción ha sido cambiado exitosamente');
+    updateRemainingBalance();
 };
+
+function updateRemainingBalance() {
+    remainingBalanceElement.innerHTML = newWithdrawalLimit - dailyWithdraw;
+}
