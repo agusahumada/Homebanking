@@ -5,6 +5,9 @@ body {
 
     background-color: #2a333d;
 }
+.bg-login{
+    filter: blur(100px);
+}
 
 .avatar {
     display: inline-block;
